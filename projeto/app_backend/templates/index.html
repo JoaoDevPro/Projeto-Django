@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Estoque</title>
+</head>
+<body>
+    <h1>Lista de Estoque</h1>
+    <ul id="risco-list"></ul>
+    <script>
+        // Fazendo a requisição GET para listar os itens de estoque
+        fetch('http://127.0.0.1:8000/risco/')
+            .then(response => response.json())
+            .then(data => {
+                const stockList = document.getElementById('risco-list');
+                data.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `descricao: ${item.descricao}, tipo: ${item.tipo}, probabilidade: ${item.probabilidade}, area: ${item.area}, classificacao: ${item.classificacao}, projeto: ${item.projeto}, data_entrada: ${item.data_entrada}, impacto: ${item.impacto}, consequencia: ${item.consequencia}, jalon_afetado: ${item.jalon_afetado}, metier: ${item.metier}, status: ${item.status}, id_usuario: ${item.id_usuario}`;
+                    stockList.appendChild(listItem);
+                });
+            })
+            .catch(error => console.error('Erro ao buscar os dados:', error));
+    </script>
+</body>
+</html>

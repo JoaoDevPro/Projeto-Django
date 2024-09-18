@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Estoque</title>
+</head>
+<body>
+    <h1>Lista de Estoque</h1>
+    <ul id="solucao-list"></ul>
+    <script>
+        // Fazendo a requisição GET para listar os itens de estoque
+        fetch('http://127.0.0.1:8000/solucao/')
+            .then(response => response.json())
+            .then(data => {
+                const stockList = document.getElementById('solucao-list');
+                data.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `estrategia: ${item.estrategia}, probabilidade_residual: ${item.probabilidade_residual}, impacto_residual: ${item.impacto_residual}, validacao_acao: ${item.validacao_acao}, data_alerta: ${item.data_alerta}, nome_piloto: ${item.nome_piloto}, id_piloto: ${item.id_piloto}, captalizacao: ${item.captalizacao}, inicio_plano_acao: ${item.inicio_plano_acao}, acao: ${item.acao}, comentario: ${item.comentario}, data_resolucao: ${item.data_resolucao}, id_risco: ${item.id_risco}`;
+                    stockList.appendChild(listItem);
+                });
+            })
+            .catch(error => console.error('Erro ao buscar os dados:', error));
+    </script>
+</body>
+</html>
