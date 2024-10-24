@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class Usuario(models.Model):
     login = models.CharField(max_length=50)
     name = models.CharField(max_length=100)
@@ -8,7 +7,7 @@ class Usuario(models.Model):
     token = models.CharField(max_length=255)
 
 class Risco(models.Model):
-    descricao = models.IntegerField()         
+    descricao = models.CharField(max_length=255)  # Corrigido para CharField
     tipo = models.CharField(max_length=255)
     probabilidade = models.CharField(max_length=255)
     area = models.CharField(max_length=255)
@@ -23,8 +22,7 @@ class Risco(models.Model):
     id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, to_field='id', verbose_name="Usuário")
 
     def __str__(self):
-        return str(self.descricao)
-    
+        return self.descricao
 
 class Piloto(models.Model):
     nome = models.CharField(max_length=255)
@@ -36,15 +34,16 @@ class Solucao(models.Model):
     validacao_acao = models.CharField(max_length=255)
     data_alerta = models.DateField()
     nome_piloto = models.CharField(max_length=255)
-    id_piloto = models.ForeignKey(Piloto, on_delete=models.CASCADE, to_field='id' )
+    id_piloto = models.ForeignKey(Piloto, on_delete=models.CASCADE, to_field='id')
     captalizacao = models.BooleanField()
     inicio_plano_acao = models.DateField()
     acao = models.CharField(max_length=255)
     comentario = models.CharField(max_length=255)
     data_resolucao = models.DateField()
     id_risco = models.ForeignKey(Risco, on_delete=models.CASCADE, to_field='id')
-    def __str__(self):
-        return str(self.estrategia)
 
-class item(models.Model):
+    def __str__(self):
+        return self.estrategia
+
+class Item(models.Model):  # Corrigido para começar com letra maiúscula
     name = models.CharField(max_length=100)

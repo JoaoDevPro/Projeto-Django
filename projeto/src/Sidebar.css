@@ -1,0 +1,292 @@
+:root {
+    --primary-color: #272727;
+    --text: white;
+    --sidebar-background: #1b1b1b;
+    --background: #121212;
+    --text-link: #ffffff;
+    --sidebar-primary: #605DFF;
+    --sidebar-primary-hover: #3d3d3d;
+    --header-bg: #1f1f1f;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    background: white;
+    font-size: 16px;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.sidebar {
+    box-shadow: 4px 0 28px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    height: 100vh;
+    top: 0;
+    min-height: 100vh;
+    width: 10rem;
+    background: var(--sidebar-background);
+    padding: 1rem;
+    color: var(--text);
+    transition: width 0.3s ease;
+    border-radius: 0 5px 5px 0;
+}
+
+.sidebar.collapsed {
+    width: 2.5rem;
+    height: 100%;
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    margin-left: 13rem;
+    /* Adapta conforme a largura do sidebar */
+}
+
+.sidebar .logo_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.sidebar .logo-small {
+    height: 2rem;
+
+}
+
+.sidebar .search_wrapper {
+    margin-bottom: 1rem;
+}
+
+.sidebar .search_wrapper input {
+    width: 100%;
+    height: 2.5rem;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    background: var(--background);
+    color: var(--text);
+}
+
+.sidebar .sidebar-links {
+    margin-top: 1rem;
+}
+
+.sidebar .sidebar-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar .sidebar-links li {
+    margin-bottom: 1.5rem;
+    /* Espaço entre os itens */
+}
+
+.sidebar .sidebar-links li a {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: var(--text-link);
+    text-decoration: none;
+    transition: background 0.3s;
+    border-radius: 0 5% 5% 0;
+    /* Arredondar bordas direitas */
+}
+
+.sidebar .sidebar-links li a:hover {
+
+    color: orange;
+}
+
+
+.sidebar .sidebar-links li a i {
+    margin-right: 1rem;
+    font-size: 1.3rem;
+    color: rgb(85, 82, 82);
+    /* Cor do ícone dentro do círculo */
+    background: white;
+    /* Cor de fundo do círculo */
+    border-radius: 50%;
+    /* Faz o círculo */
+    padding: 0.5rem;
+    /* Espaço dentro do círculo */
+    display: flex;
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    align-items: center;
+    /* Centraliza verticalmente */
+
+}
+
+.sidebar .sidebar-links li a.active i {
+    color: orange;
+    /* Cor do ícone quando ativo */
+    background: white;
+    /* Mantém a cor de fundo do círculo */
+}
+
+.sidebar .sidebar-links li a:hover i,
+.sidebar .sidebar-links li a:active i {
+    color: orange;
+    /* Cor do ícone ao passar o mouse ou clicar */
+    background: white;
+    /* Cor de fundo do círculo ao passar o mouse ou clicar */
+}
+
+.sidebar.collapsed .sidebar-links li a span {
+    display: none;
+    /* Esconder o texto das li ao colapsar */
+}
+
+.sidebar.collapsed .sidebar-links a {
+    display: flex;
+    flex-direction: column;
+    /* Organiza a logo e o botão de expansão na vertical */
+    align-items: center;
+    /* Centraliza horizontalmente */
+    margin-bottom: 1rem;
+}
+
+.sidebar .sidebar_profile {
+    position: absolute;
+    bottom: 4rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.sidebar .logout {
+    display: block;
+    color: var(--text);
+    margin-top: 1rem;
+    text-decoration: none;
+    margin-top: 70%;
+}
+
+.logo{
+height: 40px;
+}
+
+
+
+.expand-btn {
+    position: absolute;
+    top: 3.2rem;
+    right: -1rem;
+    /* Metade fora do sidebar */
+    background: var(--sidebar-primary-hover);
+    /* Cor de fundo preta */
+    border: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    /* Faz o botão ser um círculo */
+    border-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Adiciona uma sombra para dar destaque */
+    z-index: 10;
+    /* Para garantir que ele fique acima de outros elementos */
+}
+
+.fa-chevron-right {
+    font-size: 0.9rem;
+}
+
+.sidebar.collapsed .expand-btn .fa-chevron-right {
+    transform: rotate(180deg);
+    /* Seta vira ao colapsar */
+    font-size: 0.9rem;
+
+}
+
+.sidebar.collapsed .sidebar_profile span {
+    display: none;
+}
+
+
+
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    margin-left: 5%;
+    /* Largura do sidebar */
+    margin-right: 5%;
+    /* Para que não encoste na parede lateral direita */
+    height: 3rem;
+    /* Altura da navbar */
+    background: #ffffff;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    z-index: 9;
+    /* Garante que a navbar fique acima de outros elementos */
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.navbar-content {
+    display: flex;
+
+    width: 100%;
+}
+
+.navbar-item {
+    color: black;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-left: 1%;
+
+    font-size: x-large;
+}
+
+.navbar-item:hover {
+    color: #ccc;
+    /* Cor ao passar o mouse */
+}
+
+.quadrado {
+    margin-left: 2%;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 10%;
+    background: #ccc;
+
+}
+
+.quadrado i {
+    font-size: 1.5rem;
+    color: white;
+    margin: 8%;
+}
+
+.sidebar .company-name {
+    font-size: 1.2rem;
+    color: var(--text-link);
+    transition: opacity 0.3s ease;
+    /* Transição suave */
+}
+
+.sidebar.collapsed .company-name {
+    opacity: 0;
+    /* Esconde o nome da empresa quando o sidebar está colapsado */
+}
+
+.sidebar.collapsed+.main-content {
+    margin-left: 4rem;
+    /* Ajuste para a largura do sidebar colapsado */
+}

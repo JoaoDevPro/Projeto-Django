@@ -1,0 +1,224 @@
+.container1 {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: white;
+  margin-top: 30px;
+
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  
+}
+
+table tr{
+    height: 70px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: white;
+  border-bottom: 2px solid rgb(168, 163, 163);
+}
+
+
+tr:nth-child(even) {
+  background-color: white;
+}
+
+tr:hover {
+  background-color: white;
+}
+
+button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: none;
+  background-color: transparent;
+  color: grey;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+button:hover {
+  color: rgb(66, 65, 65);
+}
+
+.linha {
+  border-bottom: 1px solid rgb(224, 220, 220);
+}
+
+.button-salvar {
+  height: 42px;
+  margin-left: 30px;
+  background-color: orange;
+  color: white;
+  font-size: 16px;
+}
+
+.button-salvar:hover {
+  background-color: rgb(223, 146, 3);
+  color: white;
+}
+
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+input {
+  margin-left: 12px;
+  height: 42px;
+  width: 18%;
+  flex-wrap: wrap;
+  align-items: none;
+  margin-bottom: 1%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding-left: 8px;
+}
+
+input:focus {
+    margin-left: 12px;  
+    flex-wrap: wrap;
+    align-items: none;
+    margin-bottom: 1%;
+    border-radius: 8px;
+    border: 1px solid #fda500;
+    padding-left: 8px;
+  }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  background: white;
+  position: relative;
+  z-index: 1;
+}
+
+.div-cinza {
+  background-color: #524e4e; /* Cor de fundo cinza */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/*stlização dos inputs especificos da pagina    */
+.input-projeto {
+  width: 300px;
+  margin-left: 12px;
+}
+
+.input-descricao {
+  width: 300px;
+  margin: 12px;
+  margin-top: 80px;
+}
+
+.input-descricao:focus {
+  border: solid 1px #f3960c;
+  width: 300px;
+  margin: 12px;
+  margin-top: 80px;
+}
+
+.input-jalon {
+  width: 200px;
+}
+
+.input-tipo {
+  width: 250px;
+  margin: 12px;
+}
+
+.input-area {
+  width: 250px;
+  margin: 12px;
+}
+
+.input-classificacao {
+  width: 300px;
+  margin: 12px;
+}
+
+.input-impacto {
+  width: 200px;
+  margin-left: 12px;
+}
+
+.input-impacto:focus {
+    width: 200px;
+    margin-left: 12px;
+  }
+
+.input-metier {
+  width: 200px;
+  margin-left: 12px;
+}
+
+.input-data {
+  width: 200px;
+  margin-left: 12px;
+  font-size: #ccc;
+}
+
+.div-titulo {
+  background: #2f3033;
+  border-radius: 6px;
+  height: 70px;
+  width: 89.5%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+  margin-top: -25px;
+  color: white;
+  margin-left: 1rem;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3); /* Sombreamento na parte de baixo */
+  
+ 
+}
+
+.custom-input {
+    display: flex;
+    align-items: center;
+}
+
+.custom-input input {
+    flex: 1;
+    padding-right: 30px; /* Espaço para o ícone */
+}
+
+.calendar-icon {
+    position: absolute;
+    right: 10px;
+    pointer-events: none;
+    color: #524e4e;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+
+
+
+
+

@@ -1,8 +1,5 @@
-from django.shortcuts import render
-
 from rest_framework import viewsets
-from rest_framework import generics
-from .models import Risco, Solucao, Piloto, Usuario 
+from .models import Risco, Solucao
 from .serializers import RiscoSerializer, SolucaoSerializer
 
 class RiscoSerializerViewSet(viewsets.ModelViewSet):

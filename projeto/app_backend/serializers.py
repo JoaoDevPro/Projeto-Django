@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Risco, Solucao, Piloto, item
+from .models import Risco, Solucao, Piloto, Item  # Corrigido para Item
 
 class RiscoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,4 +10,3 @@ class SolucaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Solucao
         fields = '__all__'
-        
