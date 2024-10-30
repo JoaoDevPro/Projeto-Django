@@ -1,10 +1,9 @@
 from django.db import models
 
 class Usuario(models.Model):
-    login = models.CharField(max_length=50)
-    name = models.CharField(max_length=100)
-    senha = models.CharField(max_length=50)
-    token = models.CharField(max_length=255)
+    email = models.CharField(max_length=50)
+    password = models.CharField(max_length=50)
+    
 
 class Risco(models.Model):
     descricao = models.CharField(max_length=255)  # Corrigido para CharField
@@ -47,3 +46,5 @@ class Solucao(models.Model):
 
 class Item(models.Model):  # Corrigido para começar com letra maiúscula
     name = models.CharField(max_length=100)
+
+

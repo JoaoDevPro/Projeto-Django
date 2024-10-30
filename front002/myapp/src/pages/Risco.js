@@ -6,7 +6,7 @@ import ArrowDownward from "@material-ui/icons/ArrowDownward";
 import Check from "@material-ui/icons/Check";
 import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import ChevronRight from "@material-ui/icons/ChevronRight";
-import Clear from "@material-ui/icons/Clear";
+import Limpar from "@material-ui/icons/Clear"; // Atualizado para Limpar
 import DeleteOutline from "@material-ui/icons/DeleteOutline";
 import Edit from "@material-ui/icons/Edit";
 import FilterList from "@material-ui/icons/FilterList";
@@ -16,17 +16,19 @@ import Remove from "@material-ui/icons/Remove";
 import SaveAlt from "@material-ui/icons/SaveAlt";
 import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
+import GetApp from "@material-ui/icons/GetApp"; // Novo ícone de download
 import axios from "axios";
 import Alert from "@mui/material/Alert";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import TextField from "@mui/material/TextField";
+import { useParams } from "react-router-dom";
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
   Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
-  Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+  Limpar: forwardRef((props, ref) => <Limpar {...props} ref={ref} />), // Atualizado para Limpar
   Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
   Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
   Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref} />),
@@ -36,6 +38,7 @@ const tableIcons = {
   PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
   Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
   SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
+  Export: forwardRef((props, ref) => <GetApp {...props} ref={ref} />), // Ícone de download
 };
 
 const api = axios.create({
@@ -181,6 +184,27 @@ function Risco() {
         columns={columns}
         data={data}
         icons={tableIcons}
+        localization={{
+          toolbar: {
+            searchPlaceholder: "Pesquisar",
+          },
+          header: {
+            actions: "Ações"
+          },
+          body: {
+            emptyDataSourceMessage: "Nenhum registro para exibir",
+            filterRow: {
+              filterTooltip: "Filtrar"
+            }
+          }
+        }}
+        components={{
+          Toolbar: props => (
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <props.components.SearchField {...props.searchFieldProps} />
+            </div>
+          )
+        }}
         editable={{
           onRowAdd: newData =>
             new Promise((resolve, reject) => {
@@ -196,7 +220,8 @@ function Risco() {
             })
         }}
         options={{
-          exportButton: true
+          exportButton: true,
+          searchFieldStyle: { minWidth: 200 } // Diminui o campo de pesquisa
         }}
       />
     </div>

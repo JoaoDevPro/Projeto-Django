@@ -4,8 +4,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Dashboard from './pages/Dashboard';
 import Risco from './pages/Risco';
 import Notificacoes from './pages/Notificacoes';
-import DemoPageContent from './components/DemoPageContent';
 import Solucao from './pages/Solucao';
+import LoginForm from './components/LoginForm/LoginForm.jsx';
 
 
 const theme = createTheme({
@@ -28,12 +28,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <DemoPageContent />
         <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<LoginForm />} />
           <Route path="/solucao" element={<Solucao />} />
           <Route path="/risco" element={<Risco />} />
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<LoginForm />} />
         </Routes>
       </Router>
     </ThemeProvider>
